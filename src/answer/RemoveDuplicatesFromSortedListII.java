@@ -35,11 +35,4 @@ public class RemoveDuplicatesFromSortedListII {
 		}
 		return result.next;
     }
-	
-	public static void main(String[] args) {
-		ListNode r = new ListNode(1);
-		r.next = new ListNode(2);
-		r.next.next = new ListNode(2);
-		new RemoveDuplicatesFromSortedListII().deleteDuplicates(r);
-	}
 }
