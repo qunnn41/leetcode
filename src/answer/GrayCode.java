@@ -30,10 +30,4 @@ public class GrayCode {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        List<Integer> r = new GrayCode().grayCode(5);
-        for (int n : r)
-            System.out.println(n + "\t" + Integer.toBinaryString(n));
-    }
 }

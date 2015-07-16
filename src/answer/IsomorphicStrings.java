@@ -24,8 +24,4 @@ public class IsomorphicStrings {
         
         return true;
     }
-	
-	public static void main(String[] args) {
-		System.out.print(new IsomorphicStrings().isIsomorphic("ab", "aa"));
-	}
 }
