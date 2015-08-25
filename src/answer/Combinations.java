@@ -30,13 +30,4 @@ public class Combinations {
 			list.remove(list.size() - 1);
 		}
 	}
-
-	public static void main(String[] args) {
-		List<List<Integer>> result = new Combinations().combine(4, 2);
-		for (List<Integer> r : result) {
-			for (Integer n : r)
-				System.out.print(n + "\t");
-			System.out.println();
-		}
-	}
 }
