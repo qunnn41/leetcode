@@ -33,8 +33,4 @@ public class LetterCombinationOfPhoneNumber {
         	result.remove("");
         return result;
     }
-	
-	public static void main(String[] args) {
-		new LetterCombinationOfPhoneNumber().letterCombinations("2");
-	}
 }
