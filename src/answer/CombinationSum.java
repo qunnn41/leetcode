@@ -12,7 +12,6 @@ public class CombinationSum {
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
         Arrays.sort(candidates);
         helper(target, candidates, new ArrayList<Integer>(), 0);
-        System.out.println(result.size());
         return result;
     }
 	
