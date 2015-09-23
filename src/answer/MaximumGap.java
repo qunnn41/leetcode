@@ -19,15 +19,15 @@ public class MaximumGap {
 		int gap = (int) Math.ceil((double)(max - min) / (nums.length - 1));
 		int[] bucketMin = new int[nums.length - 1];
 		int[] bucketMax = new int[nums.length - 1];
-		Arrays.fill(bucketMin, Integer.MIN_VALUE);
-		Arrays.fill(bucketMax, Integer.MAX_VALUE);
+		Arrays.fill(bucketMin, Integer.MAX_VALUE);
+		Arrays.fill(bucketMax, Integer.MIN_VALUE);
 		
 		for (int i : nums) {
 			if (i == min || i == max) {
 				continue;
 			}
 			
-			int index = (i - min) * gap;
+			int index = (i - min) / gap;
 			bucketMin[index] = Math.min(i, bucketMin[index]);
 			bucketMax[index] = Math.max(i, bucketMax[index]);
 		}
