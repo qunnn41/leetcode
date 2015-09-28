@@ -20,4 +20,3 @@ public class FindTheDuplicateNumber {
         
         return low;
     }
-}
