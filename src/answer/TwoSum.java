@@ -22,8 +22,4 @@ public class TwoSum {
         
         return result;
     }
-	
-	public static void main(String[] args) {
-		new TwoSum().twoSum(new int[] {2,7,11,15}, 9);
-	}
 }
