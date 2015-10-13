@@ -19,14 +19,25 @@ public class BinaryTreePaths {
 	private void helper(TreeNode node, String val) {
 		if (node == null)
 			return;
-		
-		if (node.left == null && node.right == null)
-			result.add(val + "->" + node.val);
+		if (node.left == null && node.right == null) {
+			//leaf
+			if (val.length() == 0)
+				result.add(node.val + "");
+			else
+				result.add(val + "->" + node.val);
+			return;
+		}
 		
 		if (node.left != null)
-			helper(node.left, val + "->" + node.val);
+			if (val.length() == 0)
+				helper(node.left, node.val + "");
+			else
+				helper(node.left, val + "->" + node.val);
 		
 		if (node.right != null)
-			helper(node.right, val + "->" + node.val);
+			if (val.length() == 0)
+				helper(node.right, node.val + "");
+			else
+				helper(node.right, val + "->" + node.val);
 	}
 }
