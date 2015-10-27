@@ -38,8 +38,4 @@ public class SummaryRanges {
         
         return result;
     }
-	
-	public static void main(String[] args) {
-		new SummaryRanges().summaryRanges(new int[] {0,2});
-	}
 }
