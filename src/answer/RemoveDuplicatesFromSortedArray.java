@@ -10,7 +10,7 @@ public class RemoveDuplicatesFromSortedArray {
             
         int temp = A[0];
         int count = 0;
-        for (int i = 1;i < A.length; i ++) {
+        for (int i = 1; i < A.length; i ++) {
             if (A[i] == temp) {
                 count ++;
             } else {

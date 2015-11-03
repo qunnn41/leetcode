@@ -18,9 +18,7 @@ public class Permutations {
 	
 	private void helper(int[] nums, int n, ArrayList<Integer> current) {
 		if (n == nums.length) {
-			ArrayList<Integer> adding = new ArrayList<Integer>();
-			adding.addAll(current);
-			result.add(adding);
+			result.add(new ArrayList<Integer>(current));
 			return;
 		}
 		
