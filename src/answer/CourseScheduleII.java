@@ -10,7 +10,7 @@ public class CourseScheduleII {
 	 */
 	public int[] findOrder(int numCourses, int[][] prerequisites) {
 		int n = prerequisites.length;
-		List<List<Integer>> adjacent = new ArrayList<>(numCourses);
+		List<List<Integer>> adjacent = new ArrayList<List<Integer>>(numCourses);
 		for (int i = 0; i < numCourses; ++i) {
 			adjacent.add(i, new ArrayList<Integer>());
 		}

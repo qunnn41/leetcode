@@ -11,7 +11,7 @@ public class WordBreakII {
 	public List<String> wordBreak(String s, Set<String> wordDict) {
         int n = s.length();
 
-        List<List<String>> dp = new ArrayList<>();
+        List<List<String>> dp = new ArrayList<List<String>>();
         for (int i = 0; i <= n; i++) {
             dp.add(new ArrayList<String>());
         }

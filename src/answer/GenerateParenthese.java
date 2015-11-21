@@ -8,7 +8,7 @@ public class GenerateParenthese {
     /**
      * https://leetcode.com/problems/generate-parentheses/
      */
-    LinkedList<String> result = new LinkedList<>();
+    LinkedList<String> result = new LinkedList<String>();
     public List<String> generateParenthesis(int n) {
         helper("", n, 0);
         return result;

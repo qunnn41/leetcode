@@ -1,5 +1,6 @@
 package answer;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
@@ -8,7 +9,7 @@ public class FindMedianFromDataStream {
 	 * https://leetcode.com/problems/find-median-from-data-stream/
 	 */
 	
-	PriorityQueue<Integer> queue1 = new PriorityQueue<Integer>(Collections.reverseOrder());
+	PriorityQueue<Integer> queue1 = new PriorityQueue<Integer>((Collection<? extends Integer>) Collections.reverseOrder());
 	PriorityQueue<Integer> queue2 = new PriorityQueue<Integer>();
 	
 	// Adds a number into the data structure.
