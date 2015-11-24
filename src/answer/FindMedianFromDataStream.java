@@ -8,11 +8,15 @@ public class FindMedianFromDataStream {
 	 * https://leetcode.com/problems/find-median-from-data-stream/
 	 */
 	
-	PriorityQueue<Integer> queue1 = new PriorityQueue<Integer>(Collections.reverseOrder());
-	PriorityQueue<Integer> queue2 = new PriorityQueue<Integer>();
+	PriorityQueue<Integer> queue1;
+	PriorityQueue<Integer> queue2;
 	
 	// Adds a number into the data structure.
     public void addNum(int num) {
+        if (queue1 == null && queue2 == null) {
+            queue1 = new PriorityQueue<Integer>(num, Collections.reverseOrder());
+            queue2 = new PriorityQueue<Integer>(num);
+        }
         if (queue1.isEmpty()) {
         	//first one
         	queue1.add(num);
