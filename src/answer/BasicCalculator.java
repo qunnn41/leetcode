@@ -39,8 +39,4 @@ public class BasicCalculator {
         if (number != 0) result += sign * number;
         return result;
     }
-	
-	public static void main(String[] args) {
-		System.out.println(new BasicCalculator().calculate("(3)"));
-	}
 }
