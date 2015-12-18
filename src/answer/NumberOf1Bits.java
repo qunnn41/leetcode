@@ -12,5 +12,14 @@ public class NumberOf1Bits {
 			index <<= 1;
 		}
 		return result;
+
+		/**
+		 * int count = 0;
+		 * while (n != 0) {
+		 * count ++;
+		 * n = (n - 1) & n;
+		 * }
+		 * return count;
+		 */
     }
 }
