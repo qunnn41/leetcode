@@ -13,8 +13,4 @@ public class PowerOfTwo {
         	return false;
         return isPowerOfTwo(n / 2);
     }
-	
-	public static void main(String[] args) {
-		System.out.println(new PowerOfTwo().isPowerOfTwo(1026));
-	}
 }

@@ -29,9 +29,4 @@ public class ShortestPalindrome {
         sb.append(s);
         return sb.toString();
     }
-	
-	public static void main(String[] args) {
-		String s = new ShortestPalindrome().shortestPalindrome("aacecaaa");
-		System.out.println(s);
-	}
 }

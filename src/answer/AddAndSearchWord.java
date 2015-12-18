@@ -54,11 +54,4 @@ public class AddAndSearchWord {
     	
     	return false;
     }
-    
-    public static void main(String[] args) {
-    	AddAndSearchWord a = new AddAndSearchWord();
-    	a.addWord("bad");
-    	a.addWord("dad");
-    	System.out.println(a.search("pa."));
-    }
 }

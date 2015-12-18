@@ -75,12 +75,4 @@ public class NumArrayII {
             return getRange(root.right, mid + 1, j) + getRange(root.left, i, mid);
         }
     }
-
-    public static void main(String[] args) {
-        int[] n = new int[] {-1};
-        NumArrayII na = new NumArrayII(n);
-        System.out.println(na.sumRange(0, 0));
-        na.update(0,1);
-        System.out.println(na.sumRange(0, 0));
-    }
 }
