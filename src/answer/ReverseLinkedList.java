@@ -8,9 +8,7 @@ public class ReverseLinkedList {
      * https://leetcode.com/problems/reverse-linked-list/
      */
     public ListNode reverseList(ListNode head) {
-        if (head == null)
-            return null;
-        if (head.next == null)
+        if (head == null || head.next == null)
             return head;
         ListNode pre = reverseList(head.next);
         ListNode p = pre;

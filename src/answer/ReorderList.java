@@ -32,6 +32,5 @@ public class ReorderList {
         	p.next = p2;
         	p = p.next.next;
         }
-        
 	}
 }
