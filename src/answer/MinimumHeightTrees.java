@@ -10,7 +10,6 @@ public class MinimumHeightTrees {
         if (n == 1)
             return Collections.singletonList(0);
         Map<Integer, List<Integer>> neighbor = new HashMap<Integer, List<Integer>>();
-        List<Integer> neighborNumber = new LinkedList<Integer>();
         int[] number = new int[n];
         for (int i = 0; i < n; ++i)
             neighbor.put(i, new LinkedList<Integer>());
