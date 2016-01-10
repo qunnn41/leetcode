@@ -9,7 +9,7 @@ public class AddBinary {
         int b_len = b.length();
         String p = (a_len >= b_len) ? a : b;
         String q = p.equals(a) ? b : a;
-        
+
         //p point to the larger one
         String str = "";
         int c = 0;
@@ -22,14 +22,14 @@ public class AddBinary {
         	r %= 2;
         	str = r + "" + str;
         }
-        
+
         for (i = a_len - b_len - 1; i > -1; --i) {
         	int r = (p.charAt(i) - '0') + c;
         	c = (r >= 2) ? 1 : 0;
         	r %= 2;
         	str = r + "" + str;
         }
-        
+
         if (c == 1)
         	str = "1" + str;
         return str;
