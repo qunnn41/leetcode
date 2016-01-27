@@ -37,12 +37,4 @@ public class LongestIncreasingPathInMatrix {
         state[x][y] = 1 + max;
         return state[x][y];
     }
-
-    public static void main(String[] args) {
-        int[][] nums = new int[3][3];
-        nums[0] = new int[]{3,4,5};
-        nums[1] = new int[]{3,2,6};
-        nums[2] = new int[]{2,2,7};
-        System.out.print(new LongestIncreasingPathInMatrix().longestIncreasingPath(nums));
-    }
 }
