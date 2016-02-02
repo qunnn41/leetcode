@@ -19,9 +19,20 @@ public class VerifyPreorderSerializationOfBST {
             }
         }
 
-        if (depth != 0)
-            return false;
+        return depth == 0 && str[length - 1].equals("#");
+    }
 
-        return str[length - 1].equals("#");
+    public boolean isValidSerialization2(String preorder) {
+        if (preorder == null || preorder.length() == 0)
+            return false;
+        String[] str = preorder.split(",");
+        int diff = 1;
+        for (String s : str) {
+            if (--diff < 0) return false;
+            if (!s.equals("#"))
+                diff += 2;
+        }
+
+        return diff == 0;
     }
 }
