@@ -20,7 +20,8 @@ public class Sum3 {
                         result.add(Arrays.asList(num[i], num[l], num[h]));
                         while (l < h && num[l] == num[l + 1]) ++l;
                         while (l < h && num[h] == num[h - 1]) --h;
-                        ++l;--h;
+                        ++l;
+                        --h;
                     } else if (num[l] + num[h] < sum) {
                         ++l;
                     } else {

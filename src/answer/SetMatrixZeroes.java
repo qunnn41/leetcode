@@ -8,6 +8,9 @@ public class SetMatrixZeroes {
         int m = matrix.length;
         int n = matrix[0].length;
         
+        //flag1->[0][0]
+        //flag2->[0][i]
+        //flag3->[j][0]
         boolean flag1 = matrix[0][0] == 0 ? true : false;
         boolean flag2 = flag1, flag3 = flag1;
         if ( !flag2) {

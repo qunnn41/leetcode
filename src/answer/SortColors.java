@@ -11,12 +11,14 @@ public class SortColors {
         int cur = 0;
         while (cur <= blue) {
         	if (nums[cur] == 0) {
+                //red
         		int temp = nums[cur];
         		nums[cur] = nums[red];
         		nums[red] = temp;
         		red ++;
         		cur ++;
         	} else if (nums[cur] == 2) {
+                //blue
         		int temp = nums[cur];
         		nums[cur] = nums[blue];
         		nums[blue] = temp;

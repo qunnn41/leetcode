@@ -7,8 +7,7 @@ public class DivideTwoInteger {
 	public int divide(int dividend, int divisor) {
 		long dividend_l = (long)dividend;
         long divisor_l = (long)divisor;
-        int sign = (dividend > 0 && divisor > 0) || 
-                   (dividend < 0 && divisor < 0) ? 1 : -1;
+        int sign = ((dividend < 0) ^ (divisor < 0)) ? -1 : 1;
         dividend_l = Math.abs(dividend_l);
         divisor_l = Math.abs(divisor_l);
         if (dividend_l < divisor_l) {
