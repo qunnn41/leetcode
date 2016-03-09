@@ -24,6 +24,7 @@ public class MinimumWindowSubstring {
 				num ++;
 			
 			if (num == length_t) {
+                //got one, cut redundant front part
 				while (begin <= end) {
 					int ch = s.charAt(begin);
 					if (count[ch] > map[ch]) {
@@ -31,6 +32,7 @@ public class MinimumWindowSubstring {
 					} else break;
 				}
 				
+                //find a smaller one
 				if (min > end - begin + 1) {
 					min = end - begin + 1;
 					result = s.substring(begin, end + 1);

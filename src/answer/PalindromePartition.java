@@ -28,6 +28,7 @@ public class PalindromePartition {
 	                for (List<String> tempList : tempResult)
 	                    result.add(tempList);
                 } else {
+                    //i == s.length()
                 	List<String> temp = new ArrayList<String>();
                 	temp.add(begin);
                 	result.add(temp);

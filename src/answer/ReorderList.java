@@ -10,11 +10,13 @@ public class ReorderList {
         if (head == null || head.next == null)
         	return;
         ListNode p = head, mid = head;
+        //find median
         while (p.next != null && p.next.next != null) {
         	p = p.next.next;
         	mid = mid.next;
         }
         
+        //reverse the half after middle
         ListNode current = mid.next;
         while (current.next != null) {
         	ListNode after = current.next;
@@ -24,6 +26,7 @@ public class ReorderList {
         }
         
         
+        //concat two list
         ListNode p2 = mid.next;
         p = head;
         while (p != mid) {

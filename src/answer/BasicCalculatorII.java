@@ -2,7 +2,7 @@ package answer;
 
 import java.util.Stack;
 
-public class BaicCalculatorII {
+public class BasicCalculatorII {
 	/**
 	 * https://leetcode.com/problems/basic-calculator-ii/
 	 */

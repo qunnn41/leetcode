@@ -10,7 +10,7 @@ public class MinimumSizeSubarraySum {
 	public int minSubArrayLen(int s, int[] nums) {
 		Queue<Integer> queue = new LinkedList<Integer>();
 		int sum = 0;
-		int min = Integer.MAX_VALUE;
+		int min = nums.length;
 		for (int n : nums) {
 			sum += n;
 			queue.add(n);
@@ -21,6 +21,6 @@ public class MinimumSizeSubarraySum {
 			}
 		}
 		
-		return sum < s ? 0 : min;
+		return min == nums.length ? 0 : min;
     }
 }

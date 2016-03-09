@@ -31,7 +31,9 @@ public class BasicCalculator {
         	} else if (c == ')') {
         		result += sign * number;
         		number = 0;
+                //sign
         		result *= stack.pop();
+                //result
         		result += stack.pop();
         	}
         }

@@ -19,7 +19,8 @@ public class TheSkylineProblem {
         }
     
         public int compareTo(Pair p) {
-            if (this.index != p.index) return this.index - p.index;
+            if (this.index != p.index) 
+            	return this.index - p.index;
             return this.height - p.height;
         }
     
@@ -38,8 +39,11 @@ public class TheSkylineProblem {
         // Priority queue in java allows duplicates
         PriorityQueue<Integer> maxPQ = new PriorityQueue<Integer>(len, Collections.reverseOrder());
         for (Pair p: pairs) {
-            if (p.height < 0) maxPQ.add(-p.height);
-            else maxPQ.remove(p.height);
+            if (p.height < 0) 
+            	maxPQ.add(-p.height);
+            else 
+            	maxPQ.remove(p.height);
+            
             int newH = (maxPQ.peek() == null) ? 0 : maxPQ.peek();
             if (newH != height) {
                 height = newH;

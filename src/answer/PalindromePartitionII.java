@@ -5,6 +5,7 @@ public class PalindromePartitionII {
 	 * https://leetcode.com/problems/palindrome-partitioning-ii/
 	 */
 	public int minCut(String s) {
+        //palindrome[i][j] means whether s(i,j-1) is palindrome
         boolean [][]palindrome = new boolean[s.length()][s.length() + 1];
         
         for (int i = 0; i < s.length(); i ++) {

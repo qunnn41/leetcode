@@ -15,6 +15,8 @@ public class PalindromeLinkedList {
         	q = q.next;
         }
         
+        //flag is true->odd
+        //flag is false->even
         boolean flag = (p.next == null) ? true : false;
         ListNode cur = q.next.next, pre = q.next;
         while (cur != null) {

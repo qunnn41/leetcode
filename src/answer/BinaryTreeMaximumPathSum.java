@@ -24,6 +24,7 @@ public class BinaryTreeMaximumPathSum {
         right = right > 0 ? right : 0;
 
         max = Math.max(max, root.val + left + right);
+        //will be used by its parents
         return Math.max(left, right) + root.val;
     }
 }

@@ -11,6 +11,7 @@ public class UniqueBinaryTree {
 		
 		for (int i = 2; i <=n; ++i) {
 			int sum = 0;
+            //j is current root
 			for (int j = 1; j <= i; ++j)
 				sum += c[j - 1] * c[i - j];
 			c[i] = sum;

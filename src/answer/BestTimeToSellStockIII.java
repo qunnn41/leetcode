@@ -19,7 +19,8 @@ public class BestTimeToSellStockIII {
                 maxpro = Math.max(maxpro, f[kk][ii]);
             }
         }
-        
+
+        //return f[k][prices.length-1];
         return maxpro;
     }
 }

@@ -24,6 +24,7 @@ public class MergeIntevals {
 			int left = val.start;
 			int right = val.end;
 			if (last == Integer.MIN_VALUE) {
+                //first one
 				array.add(left);
 				array.add(right);
 				last = right;

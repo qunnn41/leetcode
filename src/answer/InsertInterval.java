@@ -14,12 +14,15 @@ public class InsertInterval {
         List<Interval> result = new LinkedList<Interval>();
         for (Interval i : intervals) {
             if (newInterval == null || i.end < newInterval.start)
+                //total left
                 result.add(i);
             else if (i.start > newInterval.end) {
+                //total right
                 result.add(newInterval);
                 result.add(i);
                 newInterval = null;
             } else {
+                //merge into bigger one
                 newInterval.start = Math.min(newInterval.start, i.start);
                 newInterval.end = Math.max(newInterval.end, i.end);
             }

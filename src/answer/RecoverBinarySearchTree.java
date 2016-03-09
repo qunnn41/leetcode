@@ -27,7 +27,7 @@ public class RecoverBinarySearchTree {
 		if (first != null && prev.val >= root.val) {
 			second = root;
 		}
-		
+		System.out.println(prev.val + "\t" + root.val);
 		prev = root;
 		traverse(root.right);
 	}
