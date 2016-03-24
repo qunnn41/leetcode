@@ -17,7 +17,7 @@ public class MaximumGap {
 			min = Math.min(min, n);
 		}
 		
-        //the minimum possiable gap, ceiling of the integer division
+        //the minimum possible gap, ceiling of the integer division
 		int gap = (int) Math.ceil((double)(max - min) / (nums.length - 1));
         //n - 2 numbers which is not equal to min and max, n - 1 bucket
         //at least one bucket is empty
