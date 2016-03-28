@@ -16,12 +16,6 @@ public class MultiplyString {
 			for (int j = n1 + n2 - 1; j >= n2; --j) {
 				products[i][j - count] = (array2[i] - '0') * (array1[j - n2] - '0');
 			}
-			int carry = 0;
-			for (int j = n1 + n2 - 1; j > -1; --j) {
-				products[i][j] += carry;
-				carry = products[i][j] / 10;
-				products[i][j] %= 10;
-			}
 		}
 		
 		int[] result = new int[n1 + n2];
