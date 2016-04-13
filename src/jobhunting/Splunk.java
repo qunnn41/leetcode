@@ -1,6 +1,9 @@
-
+package jobhunting;
 import java.math.BigInteger;
 
+/**
+ * Created by wyq on 4/13/16.
+ */
 class Splunk {
     public boolean solution(String S, String T) {
         char[] s_arr = S.toCharArray();
