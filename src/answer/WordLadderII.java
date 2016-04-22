@@ -1,17 +1,87 @@
 package answer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class WordLadderII {
 	/**
 	 * https://leetcode.com/problems/word-ladder-ii/
 	 */
+	private Map<String, List<String>> map = new HashMap<>();
+	private List<List<String>> results = new LinkedList<>();
+	public List<List<String>> findLadders(String start, String end, Set<String> dict) {
+		if (dict.size() == 0)
+			return results;
+		Queue<String> queue = new ArrayDeque<>();
+		queue.add(start);
+
+		Map<String, Integer> ladder = new HashMap<>();
+        dict.add(end);
+		for (String str : dict) {
+			ladder.put(str, Integer.MAX_VALUE);
+		}
+		ladder.put(start, 0);
+
+
+		int min = Integer.MAX_VALUE;
+		while (!queue.isEmpty()) {
+			String word = queue.poll();
+			int step = ladder.get(word) + 1;
+
+			if (step > min)
+				break;
+
+			for (int i = 0; i < word.length(); ++i) {
+				StringBuilder stringBuilder = new StringBuilder(word);
+				for (char ch = 'a'; ch <= 'z'; ++ch) {
+					stringBuilder.setCharAt(i, ch);
+					String newWord = stringBuilder.toString();
+					if (ladder.containsKey(newWord)) {
+                        if (step > ladder.get(newWord)) {
+                            continue;
+                        } else if (step < ladder.get(newWord)) {
+                            queue.add(newWord);
+							ladder.put(newWord, step);
+						}
+
+                        if (map.containsKey(newWord)) {
+                            map.get(newWord).add(word);
+                        } else {
+                            List<String> list = new LinkedList<>();
+                            list.add(word);
+                            map.put(newWord, list);
+                        }
+
+                        if (newWord.equals(end)) {
+                            min = step;
+                        }
+					}
+				}
+			}
+		}
+
+		backTrace(end, start, new LinkedList<>());
+
+		return results;
+	}
+
+	private void backTrace(String word, String start, List<String> list) {
+		if (word.equals(start)) {
+			list.add(0, start);
+			results.add(new LinkedList<>(list));
+			list.remove(0);
+			return;
+		}
+
+		list.add(0, word);
+		if (map.containsKey(word)) {
+			for (String str : map.get(word)) {
+				backTrace(str, start, list);
+			}
+		}
+        list.remove(0);
+	}
+
+	/*
 	public List<List<String>> findLadders(String start, String end, Set<String> dict) {
 		Set<String> set1 = new HashSet<String>();
 		Set<String> set2 = new HashSet<String>();
@@ -88,5 +158,5 @@ public class WordLadderII {
 			generateList(word, end, map, sol, res);
 			sol.remove(sol.size() - 1);
 		}
-	}
+	}*/
 }

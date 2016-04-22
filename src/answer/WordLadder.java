@@ -19,7 +19,8 @@ public class WordLadder {
         while (!q.isEmpty()) {
             String word = q.remove();
             int len = dis.get(word);
-            if (word.equals(endWord)) break;
+            if (word.equals(endWord)) 
+                break;
             for (int i = 0; i < word.length(); i++) {
                 String temp = word;
                 for (char ch = 'a'; ch <= 'z'; ch++) {
