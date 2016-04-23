@@ -35,4 +35,41 @@ public class ReverseNodesInKGroups {
         
         return (start == null) ? head : start;
     }
+
+    public ListNode reverseKGroup2(ListNode head, int k) {
+        if (head == null || head.next == null || k < 2)
+            return head;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode tail = dummy, current = dummy;
+        int count = 0;
+        while (true) {
+            count = k;
+            while (count > 0 && tail != null) {
+                count --;
+                tail = tail.next;
+            }
+
+            if (tail == null)
+                return dummy.next;
+            head = current.next;
+            while (current.next != tail) {
+                ListNode temp = current.next;
+                current.next = temp.next;
+                temp.next = tail.next;
+                tail.next = temp;
+            }
+
+            tail = head;
+            current = head;
+        }
+    }
+    public static void main(String[] args) {
+        ListNode node = new ListNode(1);
+        node.next = new ListNode(2);
+        node.next.next = new ListNode(3);
+        node.next.next.next = new ListNode(4);
+        node.next.next.next.next = new ListNode(5);
+        System.out.println(new ReverseNodesInKGroups().reverseKGroup2(node, 2));
+    }
 }

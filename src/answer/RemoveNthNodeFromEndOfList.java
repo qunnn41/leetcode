@@ -22,8 +22,8 @@ public class RemoveNthNodeFromEndOfList {
             p2 = p2.next;
         }
         
-        ListNode remove = p2.next.next;
-        p2.next = remove;
+        ListNode node = p2.next.next;
+        p2.next = node;
         return head;
     }
 }

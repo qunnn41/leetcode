@@ -33,7 +33,7 @@ public class RegularExpressionMatch {
             }
         }
 
-        //P.length() >=2
+        //P.length() >= 2 && p.charAt(1) == '*'
         while (!s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.')) {  
             if (isMatch(s, p.substring(2))) { 
                 return true;                     
@@ -41,6 +41,6 @@ public class RegularExpressionMatch {
             s = s.substring(1);
         }
 
-        return isMatch(s, p.substring(2));
+        return isMatch2(s, p.substring(2));
     }
 }
