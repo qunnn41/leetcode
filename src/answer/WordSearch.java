@@ -4,13 +4,13 @@ public class WordSearch {
 	/**
 	 * https://leetcode.com/problems/word-search/
 	 */
-	private boolean[][] record;
+	private boolean[][] visited;
     public boolean exist(char[][] board, String word) {
-        record = new boolean[board.length][];
+        visited = new boolean[board.length][];
         for (int i = 0; i < board.length; i ++) {
-            record[i] = new boolean[board[i].length];
-            for (int j = 0; j < record[i].length; j ++)
-                record[i][j] = false;
+            visited[i] = new boolean[board[i].length];
+            for (int j = 0; j < visited[i].length; j ++)
+                visited[i][j] = false;
         }
             
         for (int i = 0; i < board.length; i ++) {
@@ -40,8 +40,8 @@ public class WordSearch {
             return true;
             
         if (OnBoard(board, x, y)) {
-            if (record[x][y] == false && board[x][y] == word.charAt(0)) {
-                record[x][y] = true;
+            if (visited[x][y] == false && board[x][y] == word.charAt(0)) {
+                visited[x][y] = true;
                 boolean flag = false;
                 String remain = word.substring(1);
                 if (current(board, x - 1, y, remain))
@@ -52,7 +52,7 @@ public class WordSearch {
                     flag = true;
                 else if (current(board, x, y - 1, remain))
                     flag = true;
-                record[x][y] = false;
+                visited[x][y] = false;
                 return flag;
             }
         }

@@ -18,8 +18,7 @@ public class RecoverBinarySearchTree {
 	private void traverse(TreeNode root) {
 		if (root == null)
 			return;
-		traverse(root.left);
-		
+		traverse(root.left);	
 		if (first == null && prev.val >= root.val) {
 			first = prev;
 		}
@@ -27,7 +26,6 @@ public class RecoverBinarySearchTree {
 		if (first != null && prev.val >= root.val) {
 			second = root;
 		}
-		System.out.println(prev.val + "\t" + root.val);
 		prev = root;
 		traverse(root.right);
 	}

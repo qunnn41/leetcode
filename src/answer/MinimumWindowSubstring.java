@@ -28,7 +28,8 @@ public class MinimumWindowSubstring {
 				while (begin <= end) {
 					int ch = s.charAt(begin);
 					if (count[ch] > map[ch]) {
-						count[ch] --; begin ++;
+						count[ch] --; 
+                        begin ++;
 					} else break;
 				}
 				

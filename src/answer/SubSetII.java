@@ -1,54 +1,32 @@
 package answer;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class SubSetII {
 	/**
 	 * https://leetcode.com/problems/subsets-ii/
 	 */
-	public List<List<Integer>> subsetsWithDup(int[] num) {
-        List<Integer> list = new ArrayList<Integer>();
-        for (int i = 0; i < num.length; i ++)
-            list.add(num[i]);
-        Collections.sort(list);
+	public List<List<Integer>> subsetsWithDup(int[] S) {
+		List<List<Integer>> result = new ArrayList<>();
 
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        int max = 1 << list.size();
-        for (int i = 0; i < max; i ++) {
-            List<Integer> temp = new ArrayList<Integer>();
-            int k = i;
-            int index = 0;
-            int last = 0;
-            boolean flag = true;
-            
-            while (k > 0) {
-                if ((k & 1) > 0) {
-                    if (index == 0) {
-                        temp.add(list.get(0));
-                        last = list.get(0);
-                    } else {
-                        if (list.get(index) == last && temp.size() > 0) {
-                            flag = false;
-                            break;
-                        } else {
-                            temp.add(list.get(index));
-                            last = list.get(index);
-                            for (int ii = index - 1; ii > - 1; ii --)
-                                if (list.get(index) == list.get(ii))
-                                    temp.add(list.get(ii));
-                        }
-                    }
-                }
-                k >>= 1;
-                index ++;
-            }
-            
-            if (flag)
-                result.add(temp);
-        }
-        
-        return result;
-    }
+		if(S.length == 0){
+			return result;
+		}
+
+		Arrays.sort(S);
+		dfs(S, 0, new ArrayList<>(), result);
+		return result;
+	}
+
+	public void dfs(int[] s, int index, List<Integer> path, List<List<Integer>> result){
+		result.add(new ArrayList<>(path));
+
+		for(int i = index; i < s.length; i++){
+			if (i > index && s[i] == s[i - 1])
+				continue;
+			path.add(s[i]);
+			dfs(s, i+1, path, result);
+			path.remove(path.size()-1);
+		}
+	}
 }

@@ -8,29 +8,31 @@ public class PermutationsII {
 	/**
 	 * https://leetcode.com/problems/permutations-ii/
 	 */
-	private List<List<Integer>> result;
 	public List<List<Integer>> permuteUnique(int[] nums) {
-		result = new ArrayList<List<Integer>>();
-		Arrays.sort(nums);
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		for (int n : nums) list.add(n);
-		helper(0, list);
-		return result;
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if(nums == null || nums.length == 0) return res;
+        boolean[] used = new boolean[nums.length];
+        List<Integer> list = new ArrayList<Integer>();
+        Arrays.sort(nums);
+        helper(nums, used, list, res);
+        return res;
     }
-	
-	private void helper(int n, ArrayList<Integer> current) {
-		if (n == current.size() - 1) {
-			result.add(new ArrayList<Integer>(current));
-			return;
-		}
-		
-		for (int i = n; i < current.size(); ++i) {
-			if (i > n && current.get(i) == current.get(i - 1)) continue;
-			current.add(n, current.get(i));
-			current.remove(i + 1);
-			helper(n + 1, current);
-			current.add(i + 1, current.get(n));
-			current.remove(n);
-		}
-	}
+
+    public void helper(int[] nums, boolean[] used, List<Integer> list, List<List<Integer>> res){
+        if(list.size() == nums.length){
+            res.add(new ArrayList<Integer>(list));
+            return;
+        }
+        for(int i = 0; i < nums.length; i++){
+            if(used[i]) 
+            	continue;
+            if(i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) 
+            	continue;
+            used[i] = true;
+            list.add(nums[i]);
+            helper(nums, used, list, res);
+            used[i] = false;
+            list.remove(list.size() - 1);
+        }
+    }
 }

@@ -3,7 +3,7 @@ package answer;
 /**
  * Created by wyq on 4/23/16.
  */
-public class reverseVowels {
+public class ReverseVowels {
     public String reverseVowels(String s) {
         char[] array = s.toCharArray();
         int begin = 0, end = array.length - 1;

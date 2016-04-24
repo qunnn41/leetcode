@@ -25,4 +25,23 @@ public class BinaryTreePreorderTraversal {
         }
         return result;
     }
+
+    public List<Integer> preorderTraversal2(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> result = new LinkedList<>();
+        if (root == null) {
+            return result;
+        }
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                stack.push(node);
+                result.add(node.val);
+                node = node.left;
+            }
+            node = stack.pop();
+            node = node.right;
+        }
+        return result;
+    }
 }

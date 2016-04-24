@@ -1,7 +1,6 @@
 package answer;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import auxiliary.TreeNode;
 
@@ -22,4 +21,24 @@ public class BinaryTreePostorderTraversal {
 		helper(list, root.right);
 		list.add(root.val);
 	}
+
+	public List<Integer> postorderTraversal2(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> result = new LinkedList<>();
+        if (root == null) {
+            return result;
+        }
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                stack.push(node);
+                result.add(node.val);
+                node = node.right;
+            }
+            node = stack.pop();
+            node = node.left;
+        }
+        Collections.reverse(result);
+        return result;
+    }
 }
