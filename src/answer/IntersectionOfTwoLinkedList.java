@@ -2,7 +2,7 @@ package answer;
 
 import auxiliary.ListNode;
 
-public class InsertionOfTwoLinkedList {
+public class IntersectionOfTwoLinkedList {
 	/**
 	 * https://leetcode.com/problems/intersection-of-two-linked-lists/
 	 */

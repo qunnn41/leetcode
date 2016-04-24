@@ -1,6 +1,6 @@
 package answer;
 
-public class FindPeekElement {
+public class FindPeakElement {
 	/**
 	 * https://leetcode.com/problems/find-peak-element/
 	 */

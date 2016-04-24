@@ -15,11 +15,7 @@ public class PathSumII {
         path.add(root.val);
         if (root.left == null && root.right == null) {
             if (root.val == sum) {
-                ArrayList<Integer> t = new ArrayList<Integer>();
-                for (Integer i : path) {
-                    t.add(i);
-                }
-                result.add(t);
+                result.add(new ArrayList<>(path));
             }
         } else {
             if (root.left != null) {

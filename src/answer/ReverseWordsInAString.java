@@ -4,52 +4,31 @@ public class ReverseWordsInAString {
 	/**
 	 * https://leetcode.com/problems/reverse-words-in-a-string/
 	 */
+	// reverses the part of an array and returns the input array for convenience
+	public void reverse(char[] arr, int i, int j) {
+	    while (i < j) {
+	        char tmp = arr[i];
+	        arr[i] = arr[j];
+	        arr[j] = tmp;
+	        i ++;
+	        j --;
+	    }
+	}
+
 	public String reverseWords(String s) {
-		if (s == null) {
-			return null;
-		}
-		
-		char[] array = s.toCharArray();
-		int n = array.length;
-		
-		//reverse whole word
-		reverse(array, 0, n - 1);
-		
-		//reverse words
-		reverseWord(array, n);
-		
-		//cleanup space
-		return cleanup(array, n);
-    }
-	
-	//reverse ch[i] -- ch[j]
-	private void reverse(char[] ch, int i, int j) {
-		while (i < j) {
-			char t = ch[i];
-			ch[i] = ch[j];
-			ch[j] = t;
-			++i;--j;
-		}
-	}
-	
-	private String cleanup(char[] ch, int n) {
-		int i = 0, j = 0;
-		while (j < n) {
-			while (j < n && ch[j] == ' ') j ++;
-			while (j < n && ch[j] != ' ') ch[i ++] = ch[j ++];
-			while (j < n && ch[j] == ' ') j ++;
-			if (j < n) ch[i ++] = ' ';
-		}
-		
-		return new String(ch).substring(0, i);
-	}
-	
-	private void reverseWord(char[] ch, int n) {
-		int i = 0, j = 0;
-		while (i < n) {
-			while (i < j || (i < n && ch[i] == ' ')) i++;
-			while (j < i || (j < n && ch[j] != ' ')) j++;
-			reverse(ch, i ,j - 1);
-		}
+		char[] str = s.toCharArray();
+	    reverse(str, 0, s.length()-1);
+	    int start = 0, end = 0;
+	    for (int i = 0; i < str.length; i++) {
+	        if (str[i] != ' ') {
+	            str[end ++] = str[i];
+	        } else if (i > 0 && str[i - 1] != ' ') {
+	            reverse(str, start, end - 1);
+	            str[end ++] = ' ';
+	            start = end;
+	        }
+	    }
+	    reverse(str, start, end-1); 
+	    return new String(str, 0, end > 0 && str[end - 1] == ' ' ? end - 1 : end);
 	}
 }

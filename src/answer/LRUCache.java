@@ -35,6 +35,5 @@ public class LRUCache {
                 list.remove(0);
             }
         }
-
     }
 }

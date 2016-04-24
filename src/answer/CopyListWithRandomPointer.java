@@ -14,6 +14,7 @@ public class CopyListWithRandomPointer {
             return null;
             
         RandomListNode p = head, pp = null;
+        //copy one
         while (p != null) {
             pp = p.next;
             RandomListNode q = new RandomListNode(p.label);
@@ -22,6 +23,7 @@ public class CopyListWithRandomPointer {
             p = pp;
         }
         
+        //fix random pointer
         p = head;
         while (p != null) {
             if (p.random != null) {
@@ -30,6 +32,7 @@ public class CopyListWithRandomPointer {
             p = p.next.next;
         }
         
+        //remove original one
         RandomListNode result = new RandomListNode(-1);
         RandomListNode r, rr = result;
         p = head;

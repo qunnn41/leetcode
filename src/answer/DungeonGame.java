@@ -23,7 +23,7 @@ public class DungeonGame {
         
         for (int i = M - 2; i > -1; i --)
             for (int j = N - 2; j > -1; j --) {
-                int v = health[i + 1][j] > health[i][j + 1] ? health[i][j + 1] - dungeon[i][j] : health[i + 1][j] - dungeon[i][j];
+                int v = Math.min(health[i + 1][j], health[i][j + 1]) - dungeon[i][j];
                 health[i][j] = (v > 0) ? v : 1;
             }
                 

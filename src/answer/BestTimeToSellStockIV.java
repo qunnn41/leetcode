@@ -4,6 +4,14 @@ public class BestTimeToSellStockIV {
 	/**
 	 * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
 	 */
+
+    /**
+     * dp[i, j] represents the max profit up until prices[j] using at most i transactions. 
+     * dp[i, j] = max(dp[i, j-1], prices[j] - prices[jj] + dp[i-1, jj]) { jj in range of [0, j-1] }
+     *          = max(dp[i, j-1], prices[j] + max(dp[i-1, jj] - prices[jj]))
+     * dp[0, j] = 0; 0 transactions makes 0 profit
+     * dp[i, 0] = 0; if there is only one price data point you can't make any transaction.
+ */
 	public int maxProfit(int k, int[] prices) {
         if (prices.length < 2)
             return 0;
@@ -11,11 +19,11 @@ public class BestTimeToSellStockIV {
         if (k > prices.length / 2)
             return gap(prices);
         int[][] f = new int[k + 1][prices.length];
-        for (int kk = 1; kk <= k; kk ++) {
-            int tempMax = f[kk - 1][0] - prices[0];
-            for (int ii = 1; ii < prices.length; ii ++) {
-                f[kk][ii] = Math.max(f[kk][ii - 1], prices[ii] + tempMax);
-                tempMax = Math.max(tempMax, f[kk - 1][ii - 1] - prices[ii]);
+        for (int i = 1; i <= k; i ++) {
+            int tempMax = f[i - 1][0] - prices[0];
+            for (int j = 1; j < prices.length; j ++) {
+                f[i][j] = Math.max(f[i][j - 1], prices[j] + tempMax);
+                tempMax = Math.max(tempMax, f[i - 1][j - 1] - prices[j]);
             }
         }
         
