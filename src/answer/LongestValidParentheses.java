@@ -16,8 +16,9 @@ public class LongestValidParentheses {
         	if (t != -1 && array[i] == ')' && array[t] == '(') {
         		stack.pop();
         		maxL = Math.max(maxL, i - stack.peek());
-        	} else
+        	} else {
         		stack.push(i);
+            }
         }
         
         return maxL;

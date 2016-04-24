@@ -5,20 +5,20 @@ public class FirstMissingPositive {
 	 * https://leetcode.com/problems/first-missing-positive/
 	 */
 	public int firstMissingPositive(int[] nums) {
-		int i = 0, p = nums.length;
-		while (i < p) {
-			int n = nums[i];
-			if (n == i + 1)
-				++i;
-			else if (n <= 0 || n > p || n == nums[n - 1])
-				//out of range or duplicate
-				nums[i] = nums[--p];
-			else {
-				//swap nums[i] and nums[n - 1]
-				nums[i] = nums[n - 1];
-				nums[n - 1] = n;
-			}
-		}
-		return p + 1;
+		int n = nums.length;
+		for (int i = 0; i < n; ++i)
+			while (nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i] - 1])
+				swap(nums, i, nums[i] - 1);
+
+		for (int i = 0; i < n; ++i)
+			if (nums[i] != i + 1)
+				return i + 1;
+		return n + 1;
     }
+
+	private void swap(int[] nums, int i, int j) {
+		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}
 }

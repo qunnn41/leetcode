@@ -5,36 +5,38 @@ public class SearchForARange {
 	 * https://leetcode.com/problems/search-for-a-range/
 	 */
 	public int[] searchRange(int[] nums, int target) {
-		if (nums.length == 0)
-			return new int[] {-1, -1};
-		if (nums.length == 1) {
-			if (nums[0] != target)
-				return new int[] {-1, -1};
-			else return new int[] {0, 0};
+		int n = nums.length - 1;
+		return new int[]{GetFirst(nums, target, 0, n), GetLast(nums, target, 0, n)};
+	}
+
+	private int GetFirst(int[] nums, int target, int start, int end) {
+		if (start > end)
+			return -1;
+		while (start < end) {
+			int mid = start + ((end - start) >> 1);
+			System.out.println(start + "\t" + end + "\t" + mid);
+			if (nums[mid] < target) {
+				start = mid + 1;
+			} else {
+				end = mid;
+			}
 		}
-		return search(nums, target, 0, nums.length - 1);
-    }
-	
-	private int[] search(int[] nums, int target, int low, int high) {
-		if (low > high)
-			return new int[] {-1, -1};
-		if (low == high && nums[low] != nums[high])
-			return new int[] {-1, -1};
-		int mid = (low + high) / 2;
-		if (nums[mid] > target) {
-			return search(nums, target, low, mid - 1);
-		} else if (nums[mid] < target) {
-			return search(nums, target, mid + 1, high);
-		} else {
-			int[] left = search(nums, target, low, mid - 1);
-			int start = left[0];
-			if (start == -1) start = mid;
-			
-			int[] right = search(nums, target, mid + 1, high);
-			int end = right[1];
-			if (end == -1) end = mid;
-			
-			return new int[] {start, end};
+		System.out.println(start);
+		return nums[start] == target ? start : -1;
+	}
+
+	private int GetLast(int[] nums, int target, int start, int end) {
+		if (start > end)
+			return -1;
+		while (start < end) {
+			int mid = start + ((end - start + 1) >> 1);
+			if (nums[mid] <= target) {
+				start = mid;
+			} else {
+				end = mid - 1;
+			}
 		}
+		System.out.println(end);
+		return nums[end] == target ? end : -1;
 	}
 }
