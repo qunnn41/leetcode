@@ -36,6 +36,7 @@ public class CreateMaximumNumber {
         return j == num2.length || (i < num1.length && num1[i] > num2[j]);
     }
 
+    //choose the k max number of num
     private int[] maxArray(int[] num, int k) {
         int n = num.length;
         int[] ans = new int[k];

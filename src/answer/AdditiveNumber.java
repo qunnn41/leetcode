@@ -13,6 +13,7 @@ public class AdditiveNumber {
                 break;
             for (int j = i + 1; j < n; ++j) {
                 int first = 0, second = i, third = j;
+                //cannot start with '0'
                 if (num.charAt(second) == '0' && third > second + 1)
                     break;
                 while (third < n) {

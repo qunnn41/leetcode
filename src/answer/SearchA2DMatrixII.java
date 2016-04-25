@@ -13,7 +13,6 @@ public class SearchA2DMatrixII {
 		int i = 0, j = m - 1;
 		while (i < n && j >= 0) {
 			int num = matrix[i][j];
-			System.out.println(num);
 			if (num == target)
 				return true;
 			else if (num > target)

@@ -69,7 +69,7 @@ public class NumArrayII {
         int mid = (root.start + root.end) / 2;
         if (j <= mid) {
             return getRange(root.left, i, j);
-        } else if (i >= mid + 1) {
+        } else if (i > mid) {
             return getRange(root.right, i, j);
         } else {
             return getRange(root.right, mid + 1, j) + getRange(root.left, i, mid);

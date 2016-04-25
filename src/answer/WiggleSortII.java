@@ -16,7 +16,7 @@ public class WiggleSortII {
         for (int i = 0; i <= mid; ++i) {
             nums[index] = temp[mid - i];
             if (index + 1 < n)
-                nums[index + 1] = temp[n - i - 1];
+                nums[index + 1] = temp[n - 1 - i];
             index += 2;
         }
     }

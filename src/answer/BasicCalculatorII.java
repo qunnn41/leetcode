@@ -30,7 +30,6 @@ public class BasicCalculatorII {
 					stack.push(stack.pop() / num);
 				}
 				
-				
 				sign = ch;
 				num = 0;
 			}
