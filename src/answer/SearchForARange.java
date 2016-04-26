@@ -14,14 +14,12 @@ public class SearchForARange {
 			return -1;
 		while (start < end) {
 			int mid = start + ((end - start) >> 1);
-			System.out.println(start + "\t" + end + "\t" + mid);
 			if (nums[mid] < target) {
 				start = mid + 1;
 			} else {
 				end = mid;
 			}
 		}
-		System.out.println(start);
 		return nums[start] == target ? start : -1;
 	}
 
@@ -36,7 +34,6 @@ public class SearchForARange {
 				end = mid - 1;
 			}
 		}
-		System.out.println(end);
 		return nums[end] == target ? end : -1;
 	}
 }

@@ -25,12 +25,12 @@ public class MedianOfTwoSortedArray {
         int bM = (bL + bR) / 2;
         
         if (A[aM] < B[bM]) {
-            if (k <= (aM - aL) + (bM - bL) + 1) 
+            if (k < (aM - aL) + (bM - bL)) 
                 return findKth(A, aL, aR, B, bL, bM - 1, k);
             else
                 return findKth(A, aM + 1, aR, B, bL, bR, k - (aM - aL) - 1);
         } else {
-            if (k <= (aM - aL) + (bM - bL) + 1)
+            if (k < (aM - aL) + (bM - bL))
                 return findKth(A, aL, aM - 1, B, bL, bR, k);
             else
                 return findKth(A, aL, aR, B, bM + 1, bR, k - (bM - bL) - 1);

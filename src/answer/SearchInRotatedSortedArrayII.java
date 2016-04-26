@@ -5,26 +5,27 @@ public class SearchInRotatedSortedArrayII {
 	 * https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
 	 */
 	public boolean search(int[] nums, int target) {
-        int l = 0, r = nums.length - 1;
-        while (l <= r) {
-        	while (l < r && nums[l] == nums[l + 1]) l++;
-        	while (l < r && nums[r] == nums[r - 1]) r--;
-        	int mid = (l + r) / 2;
-        	if (target == nums[mid])
-        		return true;
-        	if (nums[mid] > target) {
-        		if (nums[l] <= target || nums[mid] < nums[l])
-        			r = mid - 1;
-        		else
-        			l = mid + 1;
-        	} else {
-        		if (nums[l] > target || nums[mid] > nums[l])
-        			l = mid + 1;
-        		else
-        			r = mid - 1;
-        	}
+        int start = 0;
+        int end = nums.length - 1;
+        while (start <= end){
+            int mid = (start + end) / 2;
+            if (nums[mid] == target)
+                return true;
+
+            if (nums[start] < nums[mid] || nums[mid] > nums[end]){
+                 if (target < nums[mid] && target >= nums[start]) 
+                    end = mid - 1;
+                 else
+                    start = mid + 1;
+            } else if (nums[mid] < nums[end] || nums[mid] < nums[start]){
+                if (target > nums[mid] && target <= nums[end])
+                    start = mid + 1;
+                 else
+                    end = mid - 1;
+            } else {
+                end --;
+            }
         }
-        
         return false;
     }
 }

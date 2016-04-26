@@ -17,9 +17,7 @@ public class CombinationSum {
 	
 	private void helper(int target, int[] candidates, List<Integer> current, int begin) {
 		if (target == 0) {
-			List<Integer> adding = new ArrayList<Integer>();
-			adding.addAll(current);
-			result.add(adding);
+			result.add(new ArrayList<>(current));
 			return;
 		}
 		

@@ -14,7 +14,7 @@ public class NextPermutation {
         		nums[i] ^= nums[j];
         		nums[j] ^= nums[i];
         		nums[i] ^= nums[j];
-        		//reverse, since from (i + 1, nums.length - 1) is totally desecenting order
+        		//reverse, since from (i + 1, nums.length - 1) is totally descending order
         		reverse(nums, i + 1, nums.length - 1);
         		return;
         	}

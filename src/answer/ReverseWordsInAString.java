@@ -28,7 +28,7 @@ public class ReverseWordsInAString {
 	            start = end;
 	        }
 	    }
-	    reverse(str, start, end-1); 
-	    return new String(str, 0, end > 0 && str[end - 1] == ' ' ? end - 1 : end);
+	    reverse(str, start, end - 1); 
+	    return new String(str, 0, end).trim();
 	}
 }

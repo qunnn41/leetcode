@@ -17,14 +17,14 @@ public class NQueens {
 		help(0, cols, d1, d2, board);
         return result;
     }
-	
+
 	private void help(int r, boolean[] cols, boolean[]d1, boolean[]d2, String[] board) {
 		if (r == board.length) {
 			result.add(board.clone());
 		} else {
 			for (int c = 0; c < board.length; ++c) {
-				int id1 = r - c + board.length;
-				int id2 = 2 * board.length - r - c - 1;
+				int id1 = r + c;
+				int id2 = board.length - 1 + c - r;
 				if (!cols[c] && !d1[id1] && !d2[id2]) {
 					char[] row = new char[board.length];
 					Arrays.fill(row, '.');

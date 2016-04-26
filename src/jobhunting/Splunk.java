@@ -4,7 +4,7 @@ import java.math.BigInteger;
 /**
  * Created by wyq on 4/13/16.
  */
-class Splunk {
+public class Splunk {
     public boolean solution(String S, String T) {
         char[] s_arr = S.toCharArray();
         char[] t_arr = T.toCharArray();
@@ -79,9 +79,5 @@ class Splunk {
         }
 
         return s_pointer == s_arr.length && t_pointer == t_arr.length;
-    }
-    public static void main(String[] args) {
-        System.out.println(new Splunk().solution("a2le", "2pl"));
-        System.out.println(new Splunk().solution("1020", "dc1008u9"));
     }
 }
