@@ -23,6 +23,7 @@ public class CountOfRangeSum {
         for (int i = start, r = 0; i < mid; ++i, ++r) {
             while (k < end && sum[k] - sum[i] < lower) k ++;
             while (j < end && sum[j] - sum[i] <= upper) j ++;
+            //complete the merge sort
             while (t < end && sum[t] < sum[i]) cache[r ++] = sum[t ++];
             cache[r] = sum[i];
             count += j - k;
