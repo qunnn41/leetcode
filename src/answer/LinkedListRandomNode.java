@@ -24,6 +24,7 @@ public class LinkedListRandomNode {
          * Returns a random node's value.
          */
         public int getRandom() {
+            // Reservoir sampling
             ListNode result = head;
             ListNode current = head;
             for (int n = 1; current != null; n ++) {
