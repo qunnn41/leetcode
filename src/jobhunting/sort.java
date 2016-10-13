@@ -9,6 +9,7 @@ public class sort {
         a[i] = a[j];
         a[j] = temp;
     }
+
     void quickSort(int[] a, int start, int end) {
         if (start < end) {
             int pivot = partition(a, start, end);
@@ -52,6 +53,7 @@ public class sort {
                     minIndex = j;
                 }
             }
+
             a[minIndex] = a[i];
             a[i] = min;
         }
@@ -87,11 +89,14 @@ public class sort {
             }
         }
 
-        while (i < mid)
-            num[k ++] = a[i ++];
+        while (i < mid) {
+            num[k++] = a[i++];
+        }
 
-        while (j < end)
-            num[k ++] = a[j ++];
+        while (j < end) {
+            num[k++] = a[j++];
+        }
+
         i = start;
         while (i < k) {
             a[i] = num[i];
@@ -103,13 +108,18 @@ public class sort {
         int temp = a[i];
         int j = 2 * i;
         while (j <= n) {
-            if (j < n && a[j] < a[j + 1])
-                j ++;
-            if (temp > a[j])
+            if (j < n && a[j] < a[j + 1]) {
+                j++;
+            }
+
+            if (temp > a[j]) {
                 break;
+            }
+
             a[j / 2] = a[j];
             j *= 2;
         }
+
         a[j / 2] = temp;
     }
 
@@ -122,9 +132,11 @@ public class sort {
     }
 
     void buildHeap(int[] a, int n) {
-        for (int i = n / 2; i > 0; --i)
+        for (int i = n / 2; i > 0; --i) {
             max_heapify(a, i, n);
+        }
     }
+
     public static void main(String[] args) {
         int[] a = new int[]{9,8,7,6,5,4,3,2,1,0};
 //        new sort().quickSort(a, 0, 10);
@@ -135,7 +147,8 @@ public class sort {
         sort s = new sort();
         s.buildHeap(a, 9);
         s.heapSort(a, 9);
-        for (int n : a)
+        for (int n : a) {
             System.out.println(n);
+        }
     }
 }

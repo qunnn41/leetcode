@@ -4,7 +4,7 @@ import java.math.BigInteger;
 /**
  * Created by wyq on 4/13/16.
  */
-public class Splunk {
+public class Splunk_Spring {
     public boolean solution(String S, String T) {
         char[] s_arr = S.toCharArray();
         char[] t_arr = T.toCharArray();
